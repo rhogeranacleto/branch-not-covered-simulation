@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"outDir": "./out-tsc/spec",
+		"baseUrl": "./",
+		"module": "commonjs",
+		"target": "es6",
+		"types": [
+			"jest",
+			"node"
+		],
+		"inlineSourceMap": true,
+		"esModuleInterop": true,
+		"removeComments": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"isolatedModules": true,
+		"noLib": true,
+		"noResolve": true,
+		"moduleResolution": "node",
+		"noUnusedLocals": true
+	},
+	"include": [
+		"**/*.spec.ts",
+		"**/*.d.ts"
+	],
+	"exclude": []
+}

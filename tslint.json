@@ -1,0 +1,3 @@
+{
+	"extends": "@sofit/tslint-rules"
+}
