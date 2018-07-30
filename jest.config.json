@@ -43,7 +43,9 @@
 	},
 	"globals": {
 		"ts-jest": {
-			"tsConfigFile": "tsconfig.spec.json"
+			"tsConfigFile": "tsconfig.spec.json",
+			"ignoreCoverageForDecorators": true,
+			"ignoreCoverageForAllDecorators": true
 		}
 	}
 }

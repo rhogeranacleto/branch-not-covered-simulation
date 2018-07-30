@@ -14,29 +14,30 @@ describe('Gate controller tests', () => {
 		updateOne: jest.fn(() => Promise.resolve('updateOne'))
 	};
 	const getCustomRepository = jest.fn(() => repository);
+	const gateService = {
+		getAll: jest.fn()
+	};
 
 	jest.spyOn(typeorm, 'getCustomRepository').mockImplementation(getCustomRepository);
 
-	const gateController = new GateController();
+	const gateController = new GateController(gateService as any);
 
 	beforeEach(() => {
 
 		jest.clearAllMocks();
 	});
 
+	it('getAll', async () => {
+
+		await gateController.getAll({
+			page: 1,
+			perPage: 2
+		});
+
+		expect(gateService.getAll).toBeCalled();
+	});
+
 	it.each([
-		[
-			'getAll',
-			'findAndCount',
-			[{
-				page: 5,
-				perPage: 34
-			}],
-			[undefined, {
-				page: 5,
-				perPage: 34
-			}]
-		],
 		[
 			'getOne',
 			'findById',

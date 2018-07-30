@@ -5,15 +5,18 @@ import { FitBodyPipe, NumberPipe } from '../../common/pipes';
 import { IPagination, PaginationPipe } from '../../core/repositories/pagination';
 import { Gate } from './gate.entity';
 import { GateRepository } from './gate.repository';
+import { GateService } from './gate.service';
 import { GATE_VALIDATION } from './gate.validation';
 
 @Controller('gates')
 export class GateController {
 
+	constructor(private readonly gateService: GateService) { }
+
 	@Get()
 	public getAll(@Query(PaginationPipe) pagination: IPagination) {
 
-		return getCustomRepository(GateRepository).findAndCount(undefined, pagination);
+		return this.gateService.getAll(pagination);
 	}
 
 	@Get(':id')
